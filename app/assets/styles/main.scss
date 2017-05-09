@@ -1,6 +1,23 @@
 @import 'colors';
 @import 'general';
 
-.genre-li {
-  //border: 1px solid red;
+
+.input-search {
+  width: 80%;
+  border-radius: 20px;
+}
+
+.click-start {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  border: 1px solid purple;
+  position: relative;
+}
+
+.click-start .plus-in-circle {
+  font-size: 100px;
+  position: absolute;
+  top: 10px;
+  left: 50px;
 }

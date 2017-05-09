@@ -16,7 +16,7 @@ class SetBySearch extends React.Component {
       { this.props.setbysearch.map((movie) => {
         console.info(movie);
         return <li key={ movie.id }>{ movie.title }
-          <button onClick={this.props.addMovieToWatchList}></button>
+          <button onClick={this.props.addMovieToWatchlist}/>
         </li>
       }) }
     </ul>

@@ -8,6 +8,7 @@ import NowPlaying from '../nowPlaying/nowPlaying';
 import SetBySearch from '../setbysearch/setbysearch';
 import TMDB from '../../core/tmdb';
 import ShortQuery from '../shortquery/shortquery';
+import WatchList from '../WatchList/WatchList';
 
 class Root extends React.Component {
 
@@ -105,33 +106,43 @@ class Root extends React.Component {
   }
 
   render() {
+    console.info(this.props.mode);
     return (
       <div className="root">
-        <h1 className="root-heading"
-            onClick={ this.handleGenres }>
-          Get Movies by Genres,
-        </h1>
-        <h1 className="root-heading"
-            onClick={ this.handleNowPlaying }
-        >See Whats Playing,</h1>
-        <h1 className="root-heading">
-          Or Search Yourself:</h1>
+        {/*<Topbar history={this.props.history}/>*/}
+        {/*<Switch>*/}
+          {/*<Route path="/explore" component={Explore}/>*/}
+          {/*<Route exact path="/playlists" component={Playlists}/>*/}
+        {/*</Switch>*/}
+
+
+        {/*<h1 className="root-heading"*/}
+            {/*onClick={ this.handleGenres }>*/}
+          {/*Get Movies by Genres,*/}
+        {/*</h1>*/}
+
         <form className="search-div" onSubmit={this.searchSubmit}
               onChange={ this.shortQuery}>
-          <button type="submit" className="fa fa-search search-font"
-                  aria-hidden="true"
-                  onClick={this.searchSubmit}/>
+          <i type="submit" className="fa fa-search search-font" aria-hidden="true"/>
           <input ref={(search) => this.search = search}
                  type="search"
+                 className="input-search"
                  placeholder="SEARCH"/>
         </form>
-        <p>Fetched movies: { this.props.movies.length }</p>
+
+        {/*<h1 className="root-heading">*/}
+          {/*Or Search Yourself:</h1>*/}
+        <h1 className="root-heading"
+            onClick={ this.handleNowPlaying }>NOW IN THEATERS</h1>
+
+
+        {/*<p>Fetched movies: { this.props.movies.length }</p>*/}
 
         { this.state.loading && 'Loading...' }
         <NowPlaying />
-        <Movies />
-        <SetBySearch />
         <ShortQuery />
+
+
       </div>
     );
   }
@@ -168,7 +179,13 @@ function mapDispatchToProps(dispatch) {
         type: 'SHORT_QUERY',
         data: data
       });
-    }
+    },
+    addMovieToWatchlist(movie) {
+      dispatch({
+        type: 'ADD_MOVIE',
+        addedMovie: movie
+      });
+    },
   }
 }
 
