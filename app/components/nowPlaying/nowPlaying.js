@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import uuid from 'uuid'
-import OneMovieInWatchList from '../OneMovieInWatchlist/OneMovieInPlaylist'
+import OneMovieInWatchList from '../OneMovieInsearh/OneMovieInsearh'
 import './nowPlaying.css'
 
 

@@ -30,7 +30,7 @@ class WatchList extends React.Component {
                         <span className="erase-movie"
                                 onClick={(e) => this.earseFromWatchlist(movie)}
                         />
-                        
+
                     </div>
                 </li>
                // return <li key={uuid()} className="one-movie-holder">
