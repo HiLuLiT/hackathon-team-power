@@ -4,6 +4,7 @@ import movies from './reducers/movies';
 import nowplaying from './reducers/nowPlaying';
 import setbysearch from './reducers/setbysearch';
 import genre from './reducers/genre';
+import watchListData from './reducers/watchListData';
 import shortquery from './reducers/shortquery';
 
 const reducer = combineReducers({
@@ -12,6 +13,7 @@ const reducer = combineReducers({
   setbysearch,
   genre,
   shortquery,
+  watchListData,
 });
 
 const store = createStore(

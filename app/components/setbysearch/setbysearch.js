@@ -43,4 +43,16 @@ function mapStateToProps({ setbysearch }) {
   };
 }
 
-export default connect(mapStateToProps)(SetBySearch);
+
+function mapDispatchToProps(dispatch) {
+    return {
+        addMovieToWatchlist(movie) {
+            dispatch({
+                type: 'ADD_MOVIE',
+                addedMovie: movie
+            });
+        },
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SetBySearch);
