@@ -37,12 +37,14 @@ export default class Start extends React.Component {
 
 
   render() {
+    const classNameVal = this.state.mode ==='playlist' ? 'playlist' :'wish-watch' ;
+
     return (
       <div>
         <header>
-          <h1 className="wish-watch">WISHWATCH</h1>
+          <h1>WISHWATCH</h1>
         </header>
-        <div className="click-start" onClick={ this.renderRoot }>
+        <div className={`click-start ${classNameVal}`} onClick={ this.renderRoot }>
 
         </div>
         <h1 className="start-header">Create A Movie Wishlist with your friends

@@ -6,6 +6,8 @@
   padding-top: 50px;
 }
 
+
+
 .empty-list-title{
   font-size: 24px;
   color: black;
@@ -32,3 +34,61 @@
   font-size: 18px;
 }
 
+.movie-in-playlist-title {
+  display: inline-block;
+  position: absolute;
+  padding-left: 5px;
+}
+
+.date {
+  position: absolute;
+  top: 50px;
+  padding-left: 5px;
+}
+
+.overview {
+  width: 280px;
+  position: absolute;
+  top: 73px;
+  padding-left: 5px;
+}
+.playlist-holder{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-in-playlist {
+  /*border: 1px solid red;*/
+  display: inline-block;
+  width: 650px;
+  height: 500px;
+  padding-left: 10px;
+
+}
+
+
+.tinting-movies-on-hover5{
+  /*display: none;*/
+  width: 20vw;
+  height: 30vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+}
+
+.tinting-movies-on-hover5:hover{
+  display: inline-block;
+  background-color: rgba(189,16,224,0.4);
+
+}
+
+.cancel-icon {
+  display: none;
+  font-size: 30px;
+
+}
+.tinting-movies-on-hover5:hover .cancel-icon {
+  display: block;
+}
