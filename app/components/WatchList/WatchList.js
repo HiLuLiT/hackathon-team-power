@@ -31,7 +31,7 @@ class WatchList extends React.Component {
   render() {
     return (
       <div className="watchlist">
-        <ul className="watchlist-holder">
+        <ul className="watchlist-holder playlist-holder">
           {this.createFirstPlayList()}
         </ul>
       </div>

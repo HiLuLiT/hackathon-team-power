@@ -37,8 +37,13 @@ a:active {
   width: 200px;
   height: 200px;
   border-radius: 100px;
-  border: 1px solid purple;
   position: relative;
+}
+
+.imdb-icon {
+  position: absolute;
+  top: 280px;
+  padding-left: 5px;
 }
 
 .click-start .plus-in-circle {
