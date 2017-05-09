@@ -24,4 +24,16 @@ class OneMovieInWatchList extends React.Component {
 }
 
 
-export default connect()(OneMovieInWatchList);
+function mapDispatchToProps(dispatch) {
+    return {
+        getWatchlist(movie) {
+            dispatch({
+                type: 'REMOVE_MOVIE',
+                movieToEarse:movie,
+            });
+        },
+    }
+}
+
+
+export default connect(null, mapDispatchToProps)(OneMovieInWatchList);

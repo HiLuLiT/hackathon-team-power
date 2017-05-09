@@ -13,13 +13,13 @@
 
 .one-movie-holder{
     position: relative;
-    cursor: hand;
+    cursor: pointer;
 }
 
-.tinting-movies-on-hover{
+.tinting-movies-on-hover3{
     /*display: none;*/
-    width: 100%;
-    height: 85%;
+    width: 97%;
+    height: 87%;
     position: absolute;
     top: 0;
     left: 0;
@@ -27,13 +27,13 @@
 
 }
 
-.tinting-movies-on-hover:hover{
+.tinting-movies-on-hover3:hover{
     display: inline-block;
     background-color: rgba(189,16,224,0.4);
 
 }
 
-.add-to-watchlist-btn{
+.add-to-watchlist-btn3{
     display: none;
     width: 140px;
     height:25px;
@@ -41,15 +41,15 @@
     background-color:#BD10E0 ;
     border: 1px solid transparent;
     position: absolute;
-    top: 110px;
-    left: 10px;
+    top: 160px;
+    left: 30px;
 }
 
-.tinting-movies-on-hover:hover .add-to-watchlist-btn{
+.tinting-movies-on-hover3:hover .add-to-watchlist-btn3{
     display: inline-block;
 }
 
-.in-theater-holder  .one-movie-holder .one-movie-title{
+.in-theater-holder  .one-movie-holder .one-movie-title2{
     font-size: 12px ;
 
 }

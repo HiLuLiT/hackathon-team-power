@@ -134,8 +134,8 @@ class Root extends React.Component {
         { this.state.loading && 'Loading...' }
 
                 {this.state.inputeSatet ==="" && <NowPlaying />}
+                {this.state.inputeSatet !=="" && <ShortQuery />}
 
-        <ShortQuery />
 
 
       </div>

@@ -29,8 +29,8 @@ class NowPlaying extends React.Component {
 
                     return <li key={uuid()} className="one-movie-holder">
                         <OneMovieInWatchList movieInfo={movie}/>
-                        <div className="tinting-movies-on-hover">
-                            <button value="ADD TO WISHLIST" className="add-to-watchlist-btn"
+                        <div className="tinting-movies-on-hover3">
+                            <button value="ADD TO WISHLIST" className="add-to-watchlist-btn3"
                                     onClick={(e) => this.saveToWatchlist(movie)}
                             >ADD TO WISHLIST
                             </button>
