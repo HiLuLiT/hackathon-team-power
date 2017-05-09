@@ -12,7 +12,8 @@ class OneMovieInWatchList extends React.Component {
 
       <img src={'https://image.tmdb.org/t/p/w300/' + this.props.movieInfo.poster_path} className="movie-poster"/>
       <div className="tinting-movies-on-hover5">
-      <i className="icon-cancel-circle cancel-icon"></i>
+      <i className="icon-cancel-circle cancel-icon"
+         onClick={()=>this.props.removeOnemovie(this.props.movieInfo)}/>
       </div>
       <p className="one-movie-title movie-in-playlist-title">{this.props.movieInfo.title}</p>
       <span className="date">Realse Date: {this.props.movieInfo.release_date}</span>
@@ -29,7 +30,7 @@ class OneMovieInWatchList extends React.Component {
 
 function mapDispatchToProps(dispatch) {
     return {
-        getWatchlist(movie) {
+        removeOnemovie(movie) {
             dispatch({
                 type: 'REMOVE_MOVIE',
                 movieToEarse:movie,
