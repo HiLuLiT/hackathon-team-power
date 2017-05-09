@@ -14,7 +14,7 @@ class ShortQuery extends React.Component {
   renderShortQuery() {
     return <ul>
       { this.props.shortquery.map((movie) => {
-        console.info(movie);
+
         return <li key={ movie.id }>{ movie.title }</li>
       }) }
     </ul>

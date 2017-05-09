@@ -1,17 +1,40 @@
 
 
 .watchlist-holder{
-    width: 250px;
-    min-height: 500px;
+    /*width: 250px;*/
+    /*min-height: 500px;*/
     position: absolute;
-    top:10%;
-    right: 0;
-    background-color: #909090;
+    top: 0;
+    left: 0;
+    /*background-color: #909090;*/
     padding-top: 50px;
 }
 
 .empty-list-title{
     font-size: 24px;
     color: white;
-    border: 1px solid red;
+
 }
+
+
+.one-movie-holder{
+    list-style: none;
+    display: inline-block;
+}
+
+.one-movie-info-holder{
+    /*width:250px;*/
+    /*height:150px;*/
+    /*background-color: azure;*/
+
+}
+
+.movie-poster{
+    width: 20vw;
+    height: 30vw;
+}
+
+.one-movie-title {
+    font-size: 18px;
+}
+

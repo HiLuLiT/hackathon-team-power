@@ -14,9 +14,13 @@ class SetBySearch extends React.Component {
   renderBySearchSubmit() {
     return <ul>
       { this.props.setbysearch.map((movie) => {
-        console.info(movie);
+
         return <li key={ movie.id }>{ movie.title }
-          <button onClick={this.props.addMovieToWatchList}></button>
+            <button onClick={()=>{this.props.addMovieToWatchlist(movie);
+            console.info(movie);
+            console.info(this.props.showMovies);
+            window.localStorage.setItem('savedWatchList', JSON.stringify(this.props.showMovies))
+            }}>Add movie</button>
         </li>
       }) }
     </ul>
@@ -37,9 +41,10 @@ class SetBySearch extends React.Component {
   }
 }
 
-function mapStateToProps({ setbysearch }) {
+function mapStateToProps({ setbysearch, watchListData  }) {
   return {
-    setbysearch: setbysearch
+    setbysearch: setbysearch,
+      showMovies:watchListData,
   };
 }
 
