@@ -16,6 +16,10 @@ class ShortQuery extends React.Component {
       { this.props.shortquery.map((movie) => {
 
         return <li key={ movie.id }>{ movie.title }</li>
+        console.info(movie);
+        return <li key={ movie.id }>{ movie.title }
+          <button onClick={this.props.addMovieToWatchlist}/>
+        </li>
       }) }
     </ul>
   }
@@ -35,10 +39,21 @@ class ShortQuery extends React.Component {
   }
 }
 
-function mapStateToProps({ shortquery }) {
+function mapStateToProps({shortquery}) {
   return {
     shortquery: shortquery
   };
 }
 
-export default connect(mapStateToProps)(ShortQuery);
+function mapDispatchToProps(dispatch) {
+  return {
+    addMovieToWatchlist(movie) {
+      dispatch({
+        type: 'ADD_MOVIE',
+        addedMovie: movie
+      });
+    },
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShortQuery);

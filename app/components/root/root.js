@@ -138,15 +138,13 @@ class Root extends React.Component {
                 </form>
                 <p>Fetched movies: { this.props.movies.length }</p>
 
-                { this.state.loading && 'Loading...' }
-                <NowPlaying />
-                <Movies />
-                <SetBySearch />
-                <WatchList/>
-                <ShortQuery />
-            </div>
-        );
-    }
+        { this.state.loading && 'Loading...' }
+        <NowPlaying />
+
+        <ShortQuery />
+      </div>
+    );
+  }
 }
 
 function mapStateToProps({movies, watchListData}) {
