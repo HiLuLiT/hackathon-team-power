@@ -2,22 +2,33 @@
 @import 'general';
 
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+}
+
+
 .input-search {
   width: 80%;
   border-radius: 20px;
-}
-
-.click-start {
-  width: 200px;
-  height: 200px;
-  border-radius: 100px;
-  border: 1px solid purple;
-  position: relative;
-}
-
-.click-start .plus-in-circle {
-  font-size: 100px;
-  position: absolute;
-  top: 10px;
-  left: 50px;
 }
