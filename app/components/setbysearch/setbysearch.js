@@ -17,8 +17,6 @@ class SetBySearch extends React.Component {
 
         return <li key={ movie.id }>{ movie.title }
             <button onClick={()=>{this.props.addMovieToWatchlist(movie);
-            console.info(movie);
-            console.info(this.props.showMovies);
             window.localStorage.setItem('savedWatchList', JSON.stringify(this.props.showMovies))
             }}>Add movie</button>
         </li>

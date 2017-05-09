@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import uuid from 'uuid'
+import './OneMovieWatchlist.css'
 
 
 class OneMovieInWatchList extends React.Component {

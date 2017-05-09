@@ -1,0 +1,55 @@
+
+
+.in-theater-holder{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    /*overflow: auto;*/
+    width: 90vw;
+    /*height: 450px;*/
+    padding-left: 10%;
+
+}
+
+.one-movie-holder{
+    position: relative;
+    cursor: hand;
+}
+
+.tinting-movies-on-hover{
+    /*display: none;*/
+    width: 100%;
+    height: 85%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+}
+
+.tinting-movies-on-hover:hover{
+    display: inline-block;
+    background-color: rgba(189,16,224,0.4);
+
+}
+
+.add-to-watchlist-btn{
+    display: none;
+    width: 140px;
+    height:25px;
+    color: white;
+    background-color:#BD10E0 ;
+    border: 1px solid transparent;
+    position: absolute;
+    top: 110px;
+    left: 10px;
+}
+
+.tinting-movies-on-hover:hover .add-to-watchlist-btn{
+    display: inline-block;
+}
+
+.in-theater-holder  .one-movie-holder .one-movie-title{
+    font-size: 12px ;
+
+}

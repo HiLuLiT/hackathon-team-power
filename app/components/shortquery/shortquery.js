@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import uuid from 'uuid'
+import OneMovieInWatchList from '../OneMovieInWatchlist/OneMovieInPlaylist'
+import './shortquery.css'
 class ShortQuery extends React.Component {
 
   constructor() {
@@ -11,14 +14,25 @@ class ShortQuery extends React.Component {
     }
   }
 
+
+    saveToWatchlist(movie) {
+        this.props.addMovieToWatchlist(movie);
+        window.localStorage.setItem('savedWatchList', JSON.stringify(this.props.showMovies))
+    }
+
   renderShortQuery() {
     return <ul>
       { this.props.shortquery.map((movie) => {
 
-        return <li key={ movie.id }>{ movie.title }</li>
-        console.info(movie);
-        return <li key={ movie.id }>{ movie.title }
-          <button onClick={this.props.addMovieToWatchlist}/>
+
+        return <li key={uuid()} className="one-movie-holder">
+          <OneMovieInWatchList movieInfo={movie}/>
+          <div className="tinting-movies-on-hover">
+            <button value="ADD TO WISHLIST" className="add-to-watchlist-btn"
+                    onClick={(e) => this.saveToWatchlist(movie)}
+            >ADD TO WISHLIST
+            </button>
+          </div>
         </li>
       }) }
     </ul>
@@ -39,9 +53,10 @@ class ShortQuery extends React.Component {
   }
 }
 
-function mapStateToProps({shortquery}) {
+function mapStateToProps({shortquery, watchListData}) {
   return {
-    shortquery: shortquery
+    shortquery: shortquery,
+      showMovies:watchListData,
   };
 }
 

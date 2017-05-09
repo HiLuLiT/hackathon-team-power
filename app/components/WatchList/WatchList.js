@@ -8,6 +8,10 @@ import './WatchList.css'
 class WatchList extends React.Component {
 
 
+    earseFromWatchlist(movie){
+
+    }
+
     createFirstPlayList() {
         const savedWatchlist = this.props.savedWatchList;
 
@@ -22,6 +26,12 @@ class WatchList extends React.Component {
             return savedWatchlist.map((movieInfo)=>{
                 return <li key={uuid()} className="one-movie-holder">
                 <OneMovieInWatchList movieInfo={movieInfo}/>
+                    <div className="tinting-movies-on-hover">
+                        <span className="erase-movie"
+                                onClick={(e) => this.earseFromWatchlist(movie)}
+                        />
+                        
+                    </div>
                 </li>
                // return <li key={uuid()} className="one-movie-holder">
                //      <div className="one-movie-info-holder">

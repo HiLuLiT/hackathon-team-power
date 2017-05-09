@@ -4,15 +4,15 @@
     /*width: 250px;*/
     /*min-height: 500px;*/
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 40%;
+    left: 7%;
     /*background-color: #909090;*/
     padding-top: 50px;
 }
 
 .empty-list-title{
     font-size: 24px;
-    color: white;
+    color: black;
 
 }
 
@@ -30,11 +30,39 @@
 }
 
 .movie-poster{
-    width: 20vw;
-    height: 30vw;
+    /*width: 20vw;*/
+    /*height: 30vw;*/
 }
 
 .one-movie-title {
     font-size: 18px;
 }
 
+
+
+.one-movie-holder{
+    position: relative;
+    cursor: hand;
+}
+
+.tinting-movies-on-hover{
+    /*display: none;*/
+    width: 100%;
+    height: 85%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+}
+
+.tinting-movies-on-hover:hover{
+    display: inline-block;
+    background-color: rgba(189,16,224,0.4);
+
+}
+
+.in-theater-holder  .one-movie-holder .one-movie-title{
+    font-size: 12px ;
+
+}

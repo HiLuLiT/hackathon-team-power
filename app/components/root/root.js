@@ -25,7 +25,8 @@ class Root extends React.Component {
         this.shortQuery = this.shortQuery.bind(this);
 
         this.state = {
-            loading: false
+            loading: false,
+            inputeSatet:"",
         }
     }
 
@@ -51,6 +52,7 @@ class Root extends React.Component {
 
         TMDB.get('/movie/now_playing?')
             .then((data) => {
+                console.info(data);
                 this.setState({
                     loading: false
                 });
@@ -91,6 +93,7 @@ class Root extends React.Component {
     shortQuery(event) {
         console.info(event.target.value);
 
+
         this.setState({
             loading: true
         });
@@ -107,7 +110,8 @@ class Root extends React.Component {
     }
 
     componentDidMount() {
-        if (window.localStorage.getItem('savedWatchList')) {
+        this.getNowPlayingMovies();
+        if (window.localStorage.getItem('savedWatchList') && window.localStorage.getItem('savedWatchList')!== 'undefined') {
             this.props.loadSavedMovies(JSON.parse(window.localStorage.getItem('savedWatchList')));
 
 
@@ -118,28 +122,20 @@ class Root extends React.Component {
     render() {
         return (
             <div className="root">
-                <h1 className="root-heading"
-                    onClick={ this.handleGenres }>
-                    Get Movies by Genres,
-                </h1>
-                <h1 className="root-heading"
-                    onClick={ this.handleNowPlaying }
-                >See Whats Playing,</h1>
-                <h1 className="root-heading">
-                    Or Search Yourself:</h1>
                 <form className="search-div" onSubmit={this.searchSubmit}
                       onChange={ this.shortQuery}>
-                    <button type="submit" className="fa fa-search search-font"
-                            aria-hidden="true"
-                            onClick={this.searchSubmit}/>
+
                     <input ref={(search) => this.search = search}
                            type="search"
-                           placeholder="SEARCH"/>
+                           placeholder="SEARCH FOR A MOVIE..."
+                           value={ this.state.inputeSatet } 
+                           onChange={(e)=>(this.setState({inputeSatet:e.target.value}))}
+                    className="search-field"/>
                 </form>
-                <p>Fetched movies: { this.props.movies.length }</p>
 
         { this.state.loading && 'Loading...' }
-        <NowPlaying />
+
+                {this.state.inputeSatet ==="" && <NowPlaying />}
 
         <ShortQuery />
       </div>

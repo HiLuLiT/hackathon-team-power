@@ -37,8 +37,7 @@ export default class Start extends React.Component {
     return (
       <div>
         <div className="click-start" onClick={ this.renderRoot }>
-          {/*<i className="fa fa-plus plus-in-circle" aria-hidden="true"/>*/}
-          { this.state.initialized ? 'yes' : 'no' }
+
         </div>
         <h1>Create A Movie Wishlist with your friends</h1>
 
