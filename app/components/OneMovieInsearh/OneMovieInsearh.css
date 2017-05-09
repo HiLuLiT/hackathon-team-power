@@ -1,0 +1,41 @@
+
+
+.watchlist-holder{
+    /*width: 250px;*/
+    /*min-height: 500px;*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*background-color: #909090;*/
+    padding-top: 50px;
+}
+
+.empty-list-title{
+    font-size: 24px;
+    color: black;
+
+}
+
+
+.one-movie-holder{
+    list-style: none;
+    display: inline-block;
+}
+
+.one-movie-info-holder2{
+    /*width:250px;*/
+    /*height:150px;*/
+    /*background-color: azure;*/
+
+}
+
+.movie-poster2{
+    width: 15vw;
+    height: 20vw;
+    margin-right:5px;
+}
+
+.one-movie-title2 {
+    font-size: 18px;
+}
+

@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import uuid from 'uuid'
+import OneMovieInWatchList from '../OneMovieInsearh/OneMovieInsearh'
+import './shortquery.css'
 class ShortQuery extends React.Component {
 
   constructor() {
@@ -10,6 +13,12 @@ class ShortQuery extends React.Component {
       loading: false
     }
   }
+
+
+    saveToWatchlist(movie) {
+        this.props.addMovieToWatchlist(movie);
+        window.localStorage.setItem('savedWatchList', JSON.stringify(this.props.showMovies))
+    }
 
   renderShortQuery() {
     return <ul>
