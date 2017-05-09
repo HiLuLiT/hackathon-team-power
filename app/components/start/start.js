@@ -43,9 +43,6 @@ export default class Start extends React.Component {
           <h1 className="wish-watch">WISHWATCH</h1>
         </header>
         <div className="click-start" onClick={ this.renderRoot }>
-          {/*<div className="line">*/}
-            {/*<div className="line-copy"></div>*/}
-          {/*</div>*/}
 
         </div>
         <h1 className="start-header">Create A Movie Wishlist with your friends

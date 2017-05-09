@@ -24,10 +24,11 @@ class Root extends React.Component {
     this.getMoviesBySearchQuery = this.getMoviesBySearchQuery.bind(this);
     this.shortQuery = this.shortQuery.bind(this);
 
-    this.state = {
-      loading: false
+        this.state = {
+            loading: false,
+            inputeSatet:"",
+        }
     }
-  }
 
   getMoviesBySearchQuery(searchQuery) {
     this.setState({
@@ -49,11 +50,12 @@ class Root extends React.Component {
       loading: true
     });
 
-    TMDB.get('/movie/now_playing?')
-      .then((data) => {
-        this.setState({
-          loading: false
-        });
+        TMDB.get('/movie/now_playing?')
+            .then((data) => {
+                console.info(data);
+                this.setState({
+                    loading: false
+                });
 
         this.props.setNowPlaying(data.results);
       });
@@ -106,27 +108,32 @@ class Root extends React.Component {
       });
   }
 
-  componentDidMount() {
-    if (window.localStorage.getItem('savedWatchList')&& window.localStorage.getItem('savedWatchList')!=='undefined') {
-      this.props.loadSavedMovies(JSON.parse(window.localStorage.getItem('savedWatchList')));
+    componentDidMount() {
+        this.getNowPlayingMovies();
+        if (window.localStorage.getItem('savedWatchList') && window.localStorage.getItem('savedWatchList')!== 'undefined') {
+            this.props.loadSavedMovies(JSON.parse(window.localStorage.getItem('savedWatchList')));
 
 
     }
   }
 
-  render() {
-    return (
-      <div className="root">
-        <form className="search-div" onSubmit={this.searchSubmit}
-              onChange={ this.shortQuery}>
-          <button type="submit" className="fa fa-search search-font"
-                  aria-hidden="true"
-                  onClick={this.searchSubmit}/>
-          <input ref={(search) => this.search = search}
-                 type="search"
-                 placeholder="SEARCH"/>
-        </form>
+    render() {
+        return (
+            <div className="root">
+                <form className="search-div" onSubmit={this.searchSubmit}
+                      onChange={ this.shortQuery}>
+
+                    <input ref={(search) => this.search = search}
+                           type="search"
+                           placeholder="SEARCH FOR A MOVIE..."
+                           value={ this.state.inputeSatet }
+                           onChange={(e)=>(this.setState({inputeSatet:e.target.value}))}
+                    className="search-field"/>
+                </form>
+
         { this.state.loading && 'Loading...' }
+
+                {this.state.inputeSatet ==="" && <NowPlaying />}
 
         <ShortQuery />
 

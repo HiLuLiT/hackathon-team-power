@@ -14,10 +14,16 @@ class ShortQuery extends React.Component {
   renderShortQuery() {
     return <ul>
       { this.props.shortquery.map((movie) => {
-        return <li key={ movie.id }>{ movie.title }
-          <button onClick={()=>{this.props.addMovieToWatchlist(movie);
-            window.localStorage.setItem('savedWatchList', JSON.stringify(this.props.showMovies))
-          }}>Add movie</button>
+
+
+        return <li key={uuid()} className="one-movie-holder">
+          <OneMovieInWatchList movieInfo={movie}/>
+          <div className="tinting-movies-on-hover">
+            <button value="ADD TO WISHLIST" className="add-to-watchlist-btn"
+                    onClick={(e) => this.saveToWatchlist(movie)}
+            >ADD TO WISHLIST
+            </button>
+          </div>
         </li>
       }) }
     </ul>
@@ -40,7 +46,7 @@ class ShortQuery extends React.Component {
 function mapStateToProps({shortquery, watchListData}) {
   return {
     shortquery: shortquery,
-    showMovies:watchListData,
+      showMovies:watchListData,
   };
 }
 

@@ -1,6 +1,15 @@
 
 
+.in-theater-holder{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    /*overflow: auto;*/
+    width: 90vw;
+    /*height: 450px;*/
+    padding-left: 10%;
 
+}
 
 .one-movie-holder{
     position: relative;
