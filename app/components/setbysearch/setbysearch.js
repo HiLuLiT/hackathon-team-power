@@ -11,11 +11,13 @@ class SetBySearch extends React.Component {
     }
   }
 
-  renderNowPlaying() {
+  renderBySearchSubmit() {
     return <ul>
       { this.props.setbysearch.map((movie) => {
         console.info(movie);
-        return <li key={ movie.id }>{ movie.title }</li>
+        return <li key={ movie.id }>{ movie.title }
+          <button onClick={this.props.addMovieToWatchList}></button>
+        </li>
       }) }
     </ul>
   }
@@ -29,7 +31,7 @@ class SetBySearch extends React.Component {
     return (
       <div className="movies">
         <h2>Choose From Search Results</h2>
-        { this.renderNowPlaying() }
+        { this.renderBySearchSubmit() }
       </div>
     );
   }

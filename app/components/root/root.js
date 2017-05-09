@@ -7,6 +7,7 @@ import Movies from '../movies/movies';
 import NowPlaying from '../nowPlaying/nowPlaying';
 import SetBySearch from '../setbysearch/setbysearch';
 import TMDB from '../../core/tmdb';
+import ShortQuery from '../shortquery/shortquery';
 
 class Root extends React.Component {
 
@@ -19,7 +20,8 @@ class Root extends React.Component {
     this.getNowPlayingMovies = this.getNowPlayingMovies.bind(this);
     this.searchSubmit = this.searchSubmit.bind(this);
     this.getMoviesBySearchQuery = this.getMoviesBySearchQuery.bind(this);
-
+    this.shortQuery = this.shortQuery.bind(this);
+    
     this.state = {
       loading: false
     }
@@ -84,6 +86,24 @@ class Root extends React.Component {
     this.getMoviesBySearchQuery(searchQuery);
   }
 
+  shortQuery(event) {
+    console.info(event.target.value);
+
+    this.setState({
+      loading: true
+    });
+
+    TMDB.get(`/search/movie?query=${event.target.value}`)
+      .then((data) => {
+      console.info(data);
+        this.setState({
+          loading: false
+        });
+
+        this.props.setShortQuery(data.results);
+      });
+  }
+
   render() {
     return (
       <div className="root">
@@ -96,8 +116,11 @@ class Root extends React.Component {
         >See Whats Playing,</h1>
         <h1 className="root-heading">
           Or Search Yourself:</h1>
-        <form className="search-div" onSubmit={this.searchSubmit}>
-          <button type="submit" className="fa fa-search search-font" aria-hidden="true" onClick={this.searchSubmit}/>
+        <form className="search-div" onSubmit={this.searchSubmit}
+              onChange={ this.shortQuery}>
+          <button type="submit" className="fa fa-search search-font"
+                  aria-hidden="true"
+                  onClick={this.searchSubmit}/>
           <input ref={(search) => this.search = search}
                  type="search"
                  placeholder="SEARCH"/>
@@ -108,6 +131,7 @@ class Root extends React.Component {
         <NowPlaying />
         <Movies />
         <SetBySearch />
+        <ShortQuery />
       </div>
     );
   }
@@ -139,6 +163,12 @@ function mapDispatchToProps(dispatch) {
         data: data
       });
     },
+    setShortQuery(data) {
+      dispatch({
+        type: 'SHORT_QUERY',
+        data: data
+      });
+    }
   }
 }
 

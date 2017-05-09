@@ -24,7 +24,7 @@ class Movies extends React.Component {
 
     TMDB.get(`/discover/movie?with_genres=${genreID}`)
       .then((data) => {
-      console.info('whats in DATA?', data);
+        console.info('whats in DATA?', data);
         this.setState({
           loading: false
         });
@@ -38,7 +38,9 @@ class Movies extends React.Component {
       { this.props.movies.map((movie) => {
         return <li key={ movie.id }
                    onClick={ () => this.getGenreList(movie.id) }
-                   className="genre-li">{ movie.name }</li>
+                   className="genre-li">{ movie.name }
+        </li>
+
       }) }
       <SetByGenre />
     </ul>
