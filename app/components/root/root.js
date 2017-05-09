@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import Movies from '../movies/movies';
 import NowPlaying from '../nowPlaying/nowPlaying';
 import SetBySearch from '../setbysearch/setbysearch';
+import WatchList from '../WatchList/WatchList';
 import TMDB from '../../core/tmdb';
 
 class Root extends React.Component {
@@ -108,6 +109,7 @@ class Root extends React.Component {
         <NowPlaying />
         <Movies />
         <SetBySearch />
+        <WatchList/>
       </div>
     );
   }
@@ -139,6 +141,12 @@ function mapDispatchToProps(dispatch) {
         data: data
       });
     },
+      addMovieToWatchlist(movie) {
+          dispatch({
+              type: 'ADD_MOVIE',
+              addedMovie: movie
+          });
+      },
   }
 }
 

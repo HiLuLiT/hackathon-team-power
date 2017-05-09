@@ -1,0 +1,17 @@
+
+
+.watchlist-holder{
+    width: 250px;
+    min-height: 500px;
+    position: absolute;
+    top:10%;
+    right: 0;
+    background-color: #909090;
+    padding-top: 50px;
+}
+
+.empty-list-title{
+    font-size: 24px;
+    color: white;
+    border: 1px solid red;
+}
