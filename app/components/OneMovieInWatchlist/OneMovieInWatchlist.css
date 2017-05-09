@@ -6,8 +6,6 @@
   padding-top: 50px;
 }
 
-
-
 .empty-list-title{
   font-size: 24px;
   color: black;
@@ -91,4 +89,24 @@
 }
 .tinting-movies-on-hover5:hover .cancel-icon {
   display: block;
+}
+
+.icon-div {
+  width: 20%;
+  padding-left: 5px;
+  display: inline-block;
+  position: relative;
+}
+.imdb-icon {
+  top: 280px;
+  left: 10px;
+  padding-left: 5px;
+}
+
+.heart-icon {
+  padding-left: 5px;
+}
+
+.camera-icon {
+  padding-left: 5px;
 }

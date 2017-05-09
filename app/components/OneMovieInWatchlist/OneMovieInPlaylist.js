@@ -12,14 +12,16 @@ class OneMovieInWatchList extends React.Component {
 
       <img src={'https://image.tmdb.org/t/p/w300/' + this.props.movieInfo.poster_path} className="movie-poster"/>
       <div className="tinting-movies-on-hover5">
-      <i className="icon-cancel-circle cancel-icon"></i>
+        <i className="icon-cancel-circle cancel-icon"></i>
       </div>
       <p className="one-movie-title movie-in-playlist-title">{this.props.movieInfo.title}</p>
       <span className="date">Realse Date: {this.props.movieInfo.release_date}</span>
       <span className="overview">{this.props.movieInfo.overview}</span>
-      <i className="fa fa-imdb" aria-hidden="true"/>
-      <i className="fa fa-heart-o" aria-hidden="true"/>
-      <i className="icon-video-camera"/>
+      <div className="icon-div">
+        <i className="fa fa-imdb imdb-icon" aria-hidden="true"/>
+        <i className="fa fa-heart-o heart-icon" aria-hidden="true"/>
+        <i className="icon-video-camera camera-icon"/>
+      </div>
     </div>
 
   }
@@ -28,14 +30,14 @@ class OneMovieInWatchList extends React.Component {
 
 
 function mapDispatchToProps(dispatch) {
-    return {
-        getWatchlist(movie) {
-            dispatch({
-                type: 'REMOVE_MOVIE',
-                movieToEarse:movie,
-            });
-        },
-    }
+  return {
+    getWatchlist(movie) {
+      dispatch({
+        type: 'REMOVE_MOVIE',
+        movieToEarse: movie,
+      });
+    },
+  }
 }
 
 
