@@ -20,8 +20,8 @@
 .one-movie-holder{
     list-style: none;
     /*display: inline-block;*/
-  width: 600px;
-  border: 1px solid black ;
+  /*width: 600px;*/
+  /*border: 1px solid black ;*/
 }
 
 .one-movie-info-holder{
