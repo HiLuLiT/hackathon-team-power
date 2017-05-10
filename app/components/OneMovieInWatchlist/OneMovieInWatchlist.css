@@ -1,4 +1,4 @@
-.watchlist-holder{
+.watchlist-holder {
   position: absolute;
   top: 0;
   left: 0;
@@ -6,24 +6,24 @@
   padding-top: 50px;
 }
 
-.empty-list-title{
+.empty-list-title {
   font-size: 24px;
   color: black;
 }
 
-.one-movie-holder{
+.one-movie-holder {
   list-style: none;
   display: inline-block;
 }
 
-.one-movie-info-holder{
+.one-movie-info-holder {
   /*width:250px;*/
   /*height:150px;*/
   /*background-color: azure;*/
 
 }
 
-.movie-poster{
+.movie-poster {
   width: 20vw;
   height: 30vw;
 }
@@ -35,37 +35,46 @@
 .movie-in-playlist-title {
   display: inline-block;
   position: absolute;
-  padding-left: 5px;
+  padding-left: 27px;
+  color: #BD10E0;
+  margin-top: 0;
+  font-family: Assistant;
+  font-size: 25px;
+  margin-bottom: 0;
 }
 
 .date {
   position: absolute;
-  top: 50px;
-  padding-left: 5px;
+  top: 35px;
+  padding-left: 27px;
+  color: #C9C9C9;
+  font-family: Assistant;
 }
 
 .overview {
   width: 280px;
   position: absolute;
   top: 73px;
-  padding-left: 5px;
+  padding-left: 27px;
+  color: rgba(74, 74, 74, 1);
+  font-family: Assistant;
+  font-size: 14px;
 }
-.playlist-holder{
+
+.playlist-holder {
   display: flex;
   flex-wrap: wrap;
 }
 
 .movie-in-playlist {
-  /*border: 1px solid red;*/
   display: inline-block;
   width: 650px;
-  height: 500px;
-  padding-left: 10px;
+  height: 100%;
+  margin-bottom: 30px;
 
 }
 
-
-.tinting-movies-on-hover5{
+.tinting-movies-on-hover5 {
   /*display: none;*/
   width: 20vw;
   height: 30vw;
@@ -76,37 +85,141 @@
 
 }
 
-.tinting-movies-on-hover5:hover{
+.tinting-movies-on-hover5:hover {
   display: inline-block;
-  background-color: rgba(189,16,224,0.4);
-
+  background-color: rgba(189, 16, 224, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0px;
+  z-index: 10;
 }
 
 .cancel-icon {
   display: none;
-  font-size: 30px;
-
+  font-size: 40px;
+  color: #BD10E0;
+  z-index: 1;
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  background-color: white;
+  border-radius: 30px;
 }
+
 .tinting-movies-on-hover5:hover .cancel-icon {
   display: block;
 }
 
 .icon-div {
-  width: 20%;
-  padding-left: 5px;
+  width: 280px;
+  height: 60px;
+  /*display: flex;*/
   display: inline-block;
   position: relative;
+  padding-left: 27px;
 }
+
+.imdb-div {
+  position: absolute;
+  left: 200px;
+  bottom: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .imdb-icon {
   top: 280px;
   left: 10px;
-  padding-left: 5px;
+  color: #9B9B9B;
+  font-size: 25px;
+  position: absolute;
+  top: 0;
+}
+
+.imdb-span {
+  color: #9B9B9B;
+  width: 80px;
+  /*font-size: 15px;*/
+  /*display: block;*/
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  color: #9B9B9B;
+  font-family: Assistant;
+  font-size: 18px;
+  padding-top: 20px;
+}
+
+.heart-div {
+  /*position: absolute;*/
+  /*bottom: 50%;*/
+  /*width: 60px;*/
+  /*height: 60px;*/
+  left: 30px;
+  position: absolute;
+  bottom: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .heart-icon {
-  padding-left: 5px;
+  color: #9B9B9B;
+  font-size: 25px;
+  /*padding-left: 30px;*/
+  /*position: absolute;*/
+  /*left: 121px;*/
+  left: 25px;
+  position: absolute;
+  top: 0;
+}
+
+.heart-span {
+  display: flex;
+  justify-content: center;
+  color: #9B9B9B;
+  font-family: Assistant;
+  font-size: 18px;
+  padding-top: 20px;
+}
+
+.camera-div {
+  /*position: absolute;*/
+  /*bottom: 50%;*/
+  /*width: 60px;*/
+  /*height: 60px;*/
+  position: absolute;
+  bottom: 0;
+  left: 100px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .camera-icon {
-  padding-left: 5px;
+  color: #9B9B9B;
+  font-size: 25px;
+  /*padding-left: 30px;*/
+  /*position: absolute;*/
+  /*left: 60px;*/
+  left: 25px;
+  position: absolute;
+  top: 0;
+
+}
+
+.camera-span {
+  display: flex;
+  justify-content: center;
+  color: #9B9B9B;
+  font-family: Assistant;
+  font-size: 18px;
+  padding-top: 20px;
 }

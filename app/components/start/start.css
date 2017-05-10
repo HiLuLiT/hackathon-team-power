@@ -4,6 +4,11 @@
   width: 1286px;
 }
 
+.app-header {
+  font-size: 2em;
+  margin: 1% 10% 0% 10%;
+}
+
 .wish-watch {
   margin-left: 77px;
   height: 27px;

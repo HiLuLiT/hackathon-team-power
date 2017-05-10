@@ -35,6 +35,24 @@ export default class Start extends React.Component {
     }
   }
 
+  handleHeader() {
+    console.info('im in');
+    if (this.state.mode === 'first') {
+
+      return  <h1 className="start-header">Create A Movie Wishlist With Your Friends
+        <span className="start-span">(press the purple button)</span>
+      </h1>
+    }
+    if (this.state.mode === 'search') {
+      return  <h1 className="start-header">Add Some Movie
+        <span className="start-span">Or Press To See Your List!</span>
+        </h1>
+    }
+    if (this.state.mode === 'playlist') {
+      return  <h1 className="start-header">Exit To Add More Movies
+      </h1>
+    }
+  }
 
   render() {
     const classNameVal = this.state.mode ==='playlist' ? 'playlist' :'wish-watch' ;
@@ -42,15 +60,13 @@ export default class Start extends React.Component {
     return (
       <div>
         <header>
-          <h1>WISHWATCH</h1>
+          <h1 className="app-header">WISHWATCH</h1>
         </header>
         <div className={`click-start ${classNameVal}`} onClick={ this.renderRoot }>
 
         </div>
-        <h1 className="start-header">Create A Movie Wishlist with your friends
-          <span className="start-span">(press the purple button)</span>
-        </h1>
 
+        { this.handleHeader() }
         { this.state.mode === 'search' && <Root /> }
         { this.state.mode === 'playlist' && <WatchList />}
 

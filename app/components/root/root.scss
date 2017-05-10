@@ -10,11 +10,27 @@
   }
 }
 
+.search-div {
+  width: 100%;
+}
+
+
 .search-field {
   display: inline-block;
-  width: 802px;
+  width: 80%;
   height: 131px;
   border: 1px solid transparent;
-  font-size: 36px;
+  position: relative;
+  left: 10%;
+  color: #4A4A4A;
+  font-family: Assistant;
+  font-size: 100px;
+  line-height: 131px;
+  outline: 0;
+  font-weight: 100;
+}
 
+.search-field::-webkit-input-placeholder {
+  color: #C9C9C9;
+  font-weight: 100;
 }

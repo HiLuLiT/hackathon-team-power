@@ -31,6 +31,7 @@
     width: 15vw;
     height: 20vw;
     margin-right:5px;
+    filter: grayscale(100%);
 }
 
 .one-movie-title2 {

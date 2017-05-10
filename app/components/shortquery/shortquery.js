@@ -21,9 +21,8 @@ class ShortQuery extends React.Component {
     }
 
   renderShortQuery() {
-    return <ul>
+    return <ul className="short-query-holder">
       { this.props.shortquery.map((movie) => {
-
 
         return <li key={uuid()} className="one-movie-holder">
           <OneMovieInWatchList movieInfo={movie}/>
@@ -46,6 +45,7 @@ class ShortQuery extends React.Component {
 
     return (
       <div className="movies-by-query">
+        <h2 className="search-results"> Search Results</h2>
         { this.renderShortQuery() }
       </div>
     );

@@ -26,7 +26,7 @@ class Root extends React.Component {
 
         this.state = {
             loading: false,
-            inputeSatet:"",
+            inputState:"",
         }
     }
 
@@ -40,7 +40,6 @@ class Root extends React.Component {
         this.setState({
           loading: false
         });
-
         this.props.setBySearch(data.results);
       });
   }
@@ -52,11 +51,9 @@ class Root extends React.Component {
 
         TMDB.get('/movie/now_playing?')
             .then((data) => {
-                console.info(data);
                 this.setState({
                     loading: false
                 });
-
         this.props.setNowPlaying(data.results);
       });
   }
@@ -71,7 +68,6 @@ class Root extends React.Component {
         this.setState({
           loading: false
         });
-
         this.props.setGenres(data.genres);
       });
   }
@@ -91,15 +87,12 @@ class Root extends React.Component {
   }
 
   shortQuery(event) {
-    console.info(event.target.value);
-
     this.setState({
       loading: true
     });
 
     TMDB.get(`/search/movie?query=${event.target.value}`)
       .then((data) => {
-        console.info(data);
         this.setState({
           loading: false
         });
@@ -112,8 +105,6 @@ class Root extends React.Component {
         this.getNowPlayingMovies();
         if (window.localStorage.getItem('savedWatchList') && window.localStorage.getItem('savedWatchList')!== 'undefined') {
             this.props.loadSavedMovies(JSON.parse(window.localStorage.getItem('savedWatchList')));
-
-
     }
   }
 
@@ -126,15 +117,15 @@ class Root extends React.Component {
                     <input ref={(search) => this.search = search}
                            type="search"
                            placeholder="SEARCH FOR A MOVIE..."
-                           value={ this.state.inputeSatet }
-                           onChange={(e)=>(this.setState({inputeSatet:e.target.value}))}
+                           value={ this.state.inputState }
+                           onChange={(e)=>(this.setState({inputState:e.target.value}))}
                     className="search-field"/>
                 </form>
 
-        { this.state.loading && 'Loading...' }
+        { this.state.loading && '' }
 
-                {this.state.inputeSatet ==="" && <NowPlaying />}
-                {this.state.inputeSatet !=="" && <ShortQuery />}
+                {this.state.inputState ==="" && <NowPlaying />}
+                {this.state.inputState !=="" && <ShortQuery />}
 
 
 

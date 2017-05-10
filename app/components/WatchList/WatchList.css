@@ -5,38 +5,29 @@
   height: calc(100% - 450px);
 }
 
-.watchlist-holder{
-    position: absolute;
-    top: 0;
-    padding-top: 50px;
+.watchlist-holder {
+  position: absolute;
+  top: 0;
+  padding-top: 50px;
+  padding-left: 120px;
 }
 
-.empty-list-title{
-    font-size: 24px;
-    color: black;
+.empty-list-title {
+  font-size: 24px;
+  color: black;
 }
 
-
-.one-movie-holder{
-    list-style: none;
-    /*display: inline-block;*/
-  /*width: 600px;*/
-  /*border: 1px solid black ;*/
+.one-movie-holder {
+  list-style: none;
 }
 
-.one-movie-info-holder{
-    /*width:250px;*/
-    /*height:150px;*/
-    /*background-color: azure;*/
-
+.movie-poster {
+  width: 20vw;
+  height: 30vw;
+  filter: grayscale(100%);
 }
 
-.movie-poster{
-    width: 20vw;
-    height: 30vw;
-}
-
-.one-movie-title {
-    font-size: 18px;
-}
+/*.one-movie-title {*/
+  /*font-size: 18px;*/
+/*}*/
 

@@ -49,8 +49,8 @@ class NowPlaying extends React.Component {
 
 
         return (
-            <div className="movies">
-                <h2> Now Playing In Theaters</h2>
+            <div className="now-playing">
+                <h2 className="now-playing-header"> Now Playing In Theaters</h2>
                 { this.renderNowPlaying() }
             </div>
         );

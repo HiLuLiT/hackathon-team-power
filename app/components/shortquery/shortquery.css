@@ -1,46 +1,62 @@
-
-
-
-
-.one-movie-holder{
-    position: relative;
-    cursor: hand;
+.short-query-holder {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 90vw;
+  padding-left: 10%;
 }
 
-.tinting-movies-on-hover{
-    /*display: none;*/
-    width: 100%;
-    height: 85%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10;
+.search-results {
+  padding-left: 10%;
+}
+
+.one-movie-holder {
+  position: relative;
+  cursor: hand;
+}
+
+.tinting-movies-on-hover {
+  /*display: none;*/
+  width: 15vw;
+  height: 20vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
 
 }
 
-.tinting-movies-on-hover:hover{
-    display: inline-block;
-    background-color: rgba(189,16,224,0.4);
+.tinting-movies-on-hover:hover {
+  display: inline-block;
+  background-color: rgba(189, 16, 224, 0.4);
 
 }
 
-.add-to-watchlist-btn{
-    display: none;
-    width: 140px;
-    height:25px;
-    color: white;
-    background-color:#BD10E0 ;
-    border: 1px solid transparent;
-    position: absolute;
-    top: 110px;
-    left: 10px;
+.add-to-watchlist-btn {
+  display: none;
+  width: 84%;
+  color: white;
+  background-color: #BD10E0;
+  border: none;
+  position: absolute;
+  /*margin: 0 auto;*/
+  top: 50%;
+  left: 10%;
+  height: 25px;
+  width: 177px;
+  color: #FFFFFF;
+  font-family: Avenir;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 25px;
+  text-align: center;
 }
 
-.tinting-movies-on-hover:hover .add-to-watchlist-btn{
-    display: inline-block;
+.tinting-movies-on-hover:hover .add-to-watchlist-btn {
+  display: inline-block;
 }
 
-.in-theater-holder  .one-movie-holder .one-movie-title{
-    font-size: 12px ;
+.in-theater-holder .one-movie-holder .one-movie-title {
+  font-size: 12px;
 
 }
