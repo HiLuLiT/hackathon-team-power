@@ -44,12 +44,12 @@ class Root extends React.Component {
       });
   }
 
-  getNowPlayingMovies() {
+  getNowPlayingMovies(pageNumber) {
     this.setState({
       loading: true
     });
 
-        TMDB.get('/movie/now_playing?')
+        TMDB.get(`/movie/now_playing?${pageNumber}`)
             .then((data) => {
                 this.setState({
                     loading: false
@@ -76,8 +76,8 @@ class Root extends React.Component {
     this.getMoviesbyGenres();
   }
 
-  handleNowPlaying(e) {
-    this.getNowPlayingMovies();
+  handleNowPlaying(pageNumber) {
+    this.getNowPlayingMovies(pageNumber);
   }
 
   searchSubmit(event) {
@@ -86,23 +86,25 @@ class Root extends React.Component {
     this.getMoviesBySearchQuery(searchQuery);
   }
 
-  shortQuery(event) {
+  shortQuery(event, pageNumber) {
     this.setState({
       loading: true
     });
-
-    TMDB.get(`/search/movie?query=${event.target.value}`)
+    const searchType= pageNumber === 1? event.target.value:this.state.inputState;
+      console.info(`/search/movie?query=${searchType}&page=${pageNumber}`);
+    TMDB.get(`/search/movie?query=${searchType}&page=${pageNumber}`)
       .then((data) => {
         this.setState({
           loading: false
         });
 
+        console.info(pageNumber);
         this.props.setShortQuery(data.results);
       });
   }
 
     componentDidMount() {
-        this.getNowPlayingMovies();
+        this.getNowPlayingMovies('&page=1');
         if (window.localStorage.getItem('savedWatchList') && window.localStorage.getItem('savedWatchList')!== 'undefined') {
             this.props.loadSavedMovies(JSON.parse(window.localStorage.getItem('savedWatchList')));
     }
@@ -112,7 +114,7 @@ class Root extends React.Component {
         return (
             <div className="root">
                 <form className="search-div" onSubmit={this.searchSubmit}
-                      onChange={ this.shortQuery}>
+                      onChange={ (e)=>this.shortQuery(e, 1)}>
 
                     <input ref={(search) => this.search = search}
                            type="search"
@@ -124,8 +126,8 @@ class Root extends React.Component {
 
         { this.state.loading && '' }
 
-                {this.state.inputState ==="" && <NowPlaying />}
-                {this.state.inputState !=="" && <ShortQuery />}
+                {this.state.inputState ==="" && <NowPlaying handleNowPlaying={this.handleNowPlaying}/>}
+                {this.state.inputState !=="" && <ShortQuery shortQuery={this.shortQuery}/>}
 
 
 

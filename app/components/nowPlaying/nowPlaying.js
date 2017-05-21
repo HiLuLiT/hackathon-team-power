@@ -11,7 +11,8 @@ class NowPlaying extends React.Component {
         super();
 
         this.state = {
-            loading: false
+            loading: false,
+            page: 1
         }
     }
 
@@ -44,14 +45,35 @@ class NowPlaying extends React.Component {
         )
     }
 
+    pagination(direction) {
+        if (direction === 'up') {
+            this.props.handleNowPlaying('&page=' + this.state.page + 1);
+            this.setState({page: this.state.page +1});
+        }
+        else {
+            this.props.handleNowPlaying('&page=' + this.state.page - 1);
+            this.setState({page: this.state.page-1});
+        }
+    }
 
     render() {
 
-
+        const disablePrevBtn = this.state.page === 1;
+        const disableNextBtn = this.state.page === 4;
         return (
             <div className="now-playing">
                 <h2 className="now-playing-header"> Now Playing In Theaters</h2>
                 { this.renderNowPlaying() }
+                <div className="pagination-hoolder">
+                    <button className="page-btn"
+                            disabled={disablePrevBtn}
+                            onClick={ () => this.pagination('down')}>Prev
+                    </button>
+                    <button className="page-btn"
+                            disabled={disableNextBtn}
+                            onClick={ () => this.pagination('up')}>Next
+                    </button>
+                </div>
             </div>
         );
     }
@@ -60,7 +82,7 @@ class NowPlaying extends React.Component {
 function mapStateToProps({nowplaying, watchListData}) {
     return {
         nowplaying: nowplaying,
-        showMovies:watchListData,
+        showMovies: watchListData,
     };
 }
 

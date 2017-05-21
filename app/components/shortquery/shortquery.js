@@ -10,7 +10,8 @@ class ShortQuery extends React.Component {
     super();
 
     this.state = {
-      loading: false
+      loading: false,
+        page: 1
     }
   }
 
@@ -38,7 +39,22 @@ class ShortQuery extends React.Component {
   }
 
 
+    pagination(direction,e) {
+        if (direction === 'up') {
+
+          this.props.shortQuery(e, this.state.page + 1);
+            this.setState({page: this.state.page+1});
+        }
+        else {
+            this.props.shortQuery(e, this.state.page - 1);
+            this.setState({page: this.state.page-1});
+        }
+    }
+
   render() {
+      const disablePrevBtn = this.state.page === 1;
+      const disableNextBtn = this.state.page === 4;
+
     if (!this.props.shortquery.length) {
       return null;
     }
@@ -47,6 +63,16 @@ class ShortQuery extends React.Component {
       <div className="movies-by-query">
         <h2 className="search-results"> Search Results</h2>
         { this.renderShortQuery() }
+        <div className="pagination-hoolder">
+          <button className="page-btn"
+                  disabled={disablePrevBtn}
+                  onClick={ (e) => this.pagination('down',e)}>Prev
+          </button>
+          <button className="page-btn"
+                  disabled={disableNextBtn}
+                  onClick={ (e) => this.pagination('up',e)}>Next
+          </button>
+        </div>
       </div>
     );
   }
