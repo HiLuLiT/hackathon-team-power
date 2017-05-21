@@ -10,6 +10,10 @@ export default function watchListData(curentWatchList = [], action) {
         return action.loadSavedMovies;
     }
 
+    if (action.type === 'LOCAL_LOAD_WISHLIST') {
+        return action.loadSavedMovies;
+    }
+
     if (action.type === 'REMOVE_MOVIE') {
         const newList = [...curentWatchList];
         for (let i in curentWatchList) {
@@ -18,8 +22,8 @@ export default function watchListData(curentWatchList = [], action) {
                 return newList
             }
         }
-        newList.push(action.addedMovie);
-        return newList
+        // newList.push(action.addedMovie);
+        // return newList
     }
 
 

@@ -36,7 +36,7 @@ export default class Start extends React.Component {
   }
 
   handleHeader() {
-    console.info('im in');
+    
     if (this.state.mode === 'first') {
 
       return  <h1 className="start-header">Create A Movie Wishlist With Your Friends

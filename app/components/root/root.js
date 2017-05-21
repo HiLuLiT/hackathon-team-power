@@ -98,17 +98,27 @@ class Root extends React.Component {
           loading: false
         });
 
-        console.info(pageNumber);
+
         this.props.setShortQuery(data.results);
       });
   }
 
     componentDidMount() {
         this.getNowPlayingMovies('&page=1');
-        if (window.localStorage.getItem('savedWatchList') && window.localStorage.getItem('savedWatchList')!== 'undefined') {
-            this.props.loadSavedMovies(JSON.parse(window.localStorage.getItem('savedWatchList')));
+        if (window.localStorage.getItem('savedWatchList') && window.localStorage.getItem('savedWatchList')!== 'null') {
+            this.props.localySavedMovies(JSON.parse(window.localStorage.getItem('savedWatchList')));
+
+
     }
+    // else{
+    //         this.props.loadSavedMovies(JSON.parse(window.localStorage.getItem('savedWatchList')));
+    //         console.info('server load');
+    //     }
   }
+
+    componentDidUpdate(){
+        window.localStorage.setItem('savedWatchList', JSON.stringify(this.props.savedWatchList));
+    }
 
     render() {
         return (
@@ -124,7 +134,7 @@ class Root extends React.Component {
                     className="search-field"/>
                 </form>
 
-        { this.state.loading && '' }
+
 
                 {this.state.inputState ==="" && <NowPlaying handleNowPlaying={this.handleNowPlaying}/>}
                 {this.state.inputState !=="" && <ShortQuery shortQuery={this.shortQuery}/>}
@@ -182,6 +192,12 @@ function mapDispatchToProps(dispatch) {
         loadSavedMovies: movie
       });
     },
+      localySavedMovies(movie) {
+          dispatch({
+              type: 'LOCAL_LOAD_WISHLIST',
+              loadSavedMovies: movie
+          });
+      },
   }
 }
 

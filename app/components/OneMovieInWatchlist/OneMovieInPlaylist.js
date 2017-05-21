@@ -41,6 +41,17 @@ class OneMovieInWatchList extends React.Component {
   //   }
   // }
 
+    removeMovie(){
+
+        this.props.removeOnemovie(this.props.movieInfo);
+        window.localStorage.setItem('savedWatchList', JSON.stringify(this.props.showMovies));
+    }
+
+    componentWillUpdate(){
+      console.info('checking');
+
+    }
+
   render() {
     this.getGenreList()
     return <div className="one-movie-info-holder movie-in-playlist">
@@ -48,7 +59,7 @@ class OneMovieInWatchList extends React.Component {
       <img src={'https://image.tmdb.org/t/p/w300/' + this.props.movieInfo.poster_path} className="movie-poster"/>
       <div className="tinting-movies-on-hover5">
         <i className="icon-cancel-circle cancel-icon"
-           onClick={() => this.props.removeOnemovie(this.props.movieInfo)}/>
+           onClick={() => this.removeMovie()}/>
       </div>
       <p className="one-movie-title movie-in-playlist-title">{this.props.movieInfo.title}</p>
       <span className="date">({ this.handleYear()})</span>
@@ -78,6 +89,13 @@ class OneMovieInWatchList extends React.Component {
 }
 
 
+function mapStateToProps({ setbysearch, watchListData  }) {
+    return {
+        setbysearch: setbysearch,
+        showMovies:watchListData,
+    };
+}
+
 function mapDispatchToProps(dispatch) {
   return {
     removeOnemovie(movie) {
@@ -96,4 +114,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 
-export default connect(null, mapDispatchToProps)(OneMovieInWatchList);
+export default connect(mapStateToProps, mapDispatchToProps)(OneMovieInWatchList);
