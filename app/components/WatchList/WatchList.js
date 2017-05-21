@@ -31,7 +31,7 @@ class WatchList extends React.Component {
 
     componentDidUpdate(){
 
-        window.localStorage.setItem('savedWatchList', JSON.stringify(this.props.savedWatchList));
+       // window.localStorage.setItem('savedWatchList', JSON.stringify(this.props.savedWatchList));
     }
   render() {
     return (

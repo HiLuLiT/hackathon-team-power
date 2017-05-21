@@ -44,7 +44,7 @@ class OneMovieInWatchList extends React.Component {
     removeMovie(){
 
         this.props.removeOnemovie(this.props.movieInfo);
-        window.localStorage.setItem('savedWatchList', JSON.stringify(this.props.showMovies));
+       // window.localStorage.setItem('savedWatchList', JSON.stringify(this.props.showMovies));
     }
 
     componentWillUpdate(){

@@ -19,7 +19,7 @@ class NowPlaying extends React.Component {
 
     saveToWatchlist(movie) {
         this.props.addMovieToWatchlist(movie);
-        window.localStorage.setItem('savedWatchList', JSON.stringify(this.props.showMovies))
+        //window.localStorage.setItem('savedWatchList', JSON.stringify(this.props.showMovies))
     }
 
     renderNowPlaying() {

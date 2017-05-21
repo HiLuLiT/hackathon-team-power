@@ -106,7 +106,7 @@ class Root extends React.Component {
     componentDidMount() {
         this.getNowPlayingMovies('&page=1');
         if (window.localStorage.getItem('savedWatchList') && window.localStorage.getItem('savedWatchList')!== 'null') {
-            this.props.localySavedMovies(JSON.parse(window.localStorage.getItem('savedWatchList')));
+            // this.props.localySavedMovies(JSON.parse(window.localStorage.getItem('savedWatchList')));
 
 
     }
@@ -117,7 +117,7 @@ class Root extends React.Component {
   }
 
     componentDidUpdate(){
-        window.localStorage.setItem('savedWatchList', JSON.stringify(this.props.savedWatchList));
+        //window.localStorage.setItem('savedWatchList', JSON.stringify(this.props.savedWatchList));
     }
 
     render() {
